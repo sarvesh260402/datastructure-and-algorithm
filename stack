@@ -1,48 +1,48 @@
-#include <stdio.h>     // Includes the standard input/output library necessary                         for functions
+#include <stdio.h>
 
-#include <stdlib.h>   //Includes the standard library for functions like exit
+#include <stdlib.h>
 
-#define SIZE 4    //Defines a constant SIZE with a value of 4
+#define SIZE 4
 
-int top = -1, inp_array[SIZE];   // array is story stack element with the                                             size of size
+int top = -1, inp_array[SIZE];
 void push();
 void pop();
 void show();
 
-int main()          //main function
+int main()
 {
-    int choice;     //Declares a variable choice to store the user’s menu                               selection.
+    int choice;
 
-    while (1)  //Starts an infinite loop to repeatedly display the menu and                process user choices until the user decides to exit.
+    while (1)
     {
         printf("\nPerform operations on the stack:");
         printf("\n1.Push the element\n2.Pop the element\n3.Show\n4.End");
         printf("\n\nEnter the choice: ");
         scanf("%d", &choice);
 
-        switch (choice) //Executes different code blocks based on the user's                              choice
+        switch (choice)
         {
-        case 1:        // Calls the push() function to add an element to the                     stack
-            push();      
-            break;     // after done it break that loop
-        case 2:   //Calls the pop() function to remove an element from the                      stack
+        case 1:
+            push();
+            break;
+        case 2:
             pop();
             break;
-        case 3:  //Calls the show() function to display stack elements
+        case 3:
             show();
             break;
-        case 4:  //Prints an exit message and terminates the program using exit                (0)
+        case 4:
             exit(0);
 
-        default:  //Handles invalid choices by printing an error message
+        default:
             printf("\nInvalid choice!!");
         }
     }
 }
 
-void push()  //Defines the push function to add an element to the stack
+void push()
 {
-    int x;  // Declares a variable x to store the element being pushed onto the                           stack
+    int x;
 
     if (top == SIZE - 1)
     {
@@ -50,7 +50,7 @@ void push()  //Defines the push function to add an element to the stack
     }
     else
     {
-        printf("\nEnter the element to be added onto the stack: ");   //its                                                         take values
+        printf("\nEnter the element to be added onto the stack: ");
         scanf("%d", &x);
         top = top + 1;
         inp_array[top] = x;
@@ -79,7 +79,7 @@ void show()
     else
     {
         printf("\nElements present in the stack: \n");
-        for (int i = top; i >= 0; --i) // Loops from the top of the stack to                                   the bottom, printing each element.
+        for (int i = top; i >= 0; --i)
             printf("%d\n", inp_array[i]);
     }
 }
